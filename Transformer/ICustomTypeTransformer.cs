@@ -1,8 +1,5 @@
 ﻿namespace Transformer
 {
-    /// <summary>The Custom Type transformer interface.</summary>
-    /// <typeparam name="TSource">Source type</typeparam>
-    /// <typeparam name="TDestination">Destination type</typeparam>
     public interface ICustomTypeTransformer<in TSource, TDestination>
     {
         /// <summary>The map.</summary>

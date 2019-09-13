@@ -1,6 +1,5 @@
 ﻿namespace Transformer.Tests
 {
-    /// <summary>The sample type converter without dependencies.</summary>
     public class
         SampleTypeTransformerWithoutDependencies : ICustomTypeTransformer<SampleClientRequest, SampleInternalRequest>
     {

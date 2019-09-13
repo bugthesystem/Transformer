@@ -54,7 +54,7 @@
             var result = provider.Map<SampleClientRequest, SampleInternalRequest>(sampleClientRequest);
 
             Assert.NotNull(result);
-            Assert.NotNull(result.Filter == sampleClientRequest.Query);
+            Assert.True(result.Filter == sampleClientRequest.Query);
         }
     }
 }

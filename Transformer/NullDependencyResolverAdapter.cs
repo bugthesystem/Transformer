@@ -4,9 +4,6 @@
 
     public class NullDependencyResolverAdapter : IDependencyResolverAdapter
     {
-        public object GetService(Type arg)
-        {
-            return null;
-        }
+        public object GetService(Type arg) => null;
     }
 }

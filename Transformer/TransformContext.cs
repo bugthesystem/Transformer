@@ -7,10 +7,7 @@
     {
         /// <summary>Initializes a new instance of the <see cref="TransformContext{TSource,TDestination}" /> class.</summary>
         /// <param name="source">The source.</param>
-        public TransformContext(TSource source)
-        {
-            this.Source = source;
-        }
+        public TransformContext(TSource source) => this.Source = source;
 
         /// <summary>Gets or sets the destination.</summary>
         public TDestination Destination { get; set; }

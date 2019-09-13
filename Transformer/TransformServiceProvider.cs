@@ -16,10 +16,7 @@
 
         /// <summary>Initializes a new instance of the <see cref="TransformServiceProvider" /> class.</summary>
         /// <param name="dependencyResolver">The resolver.</param>
-        public TransformServiceProvider(Func<Type, object> dependencyResolver)
-        {
-            this.dependencyResolver = dependencyResolver;
-        }
+        public TransformServiceProvider(Func<Type, object> dependencyResolver) => this.dependencyResolver = dependencyResolver;
 
         /// <inheritdoc />
         public TDestination Map<TSource, TDestination>(TSource input)
@@ -48,8 +45,7 @@
                 input => transformFunc((TSource)input));
 
             if (!registered)
-                throw new Exception(
-                    $"Registering converter for Source type: {typeof(TSource).Name} and Destination type: {typeof(TDestination).Name} is failed.");
+                throw new Exception($"Registering converter for Source type: {typeof(TSource).Name} and Destination type: {typeof(TDestination).Name} is failed.");
         }
 
         /// <summary>The register custom.</summary>
@@ -69,8 +65,7 @@
                     });
 
             if (!registered)
-                throw new Exception(
-                    $"Registering converter for Source type: {typeof(TSource).Name} and Destination type: {typeof(TDestination).Name} is failed.");
+                throw new Exception($"Registering converter for Source type: {typeof(TSource).Name} and Destination type: {typeof(TDestination).Name} is failed.");
         }
 
         /// <summary>The resolve converter.</summary>
@@ -83,15 +78,11 @@
         {
             TTransformer converter;
             if (this.dependencyResolver != null) converter = (TTransformer)this.dependencyResolver(typeof(TTransformer));
-            else
-
-                // Converter has to have parameter-less constructor.
-                converter = Activator.CreateInstance<TTransformer>();
+            else converter = Activator.CreateInstance<TTransformer>();
 
             return converter;
         }
 
-        /// <summary>The type map to hold source to destination types.</summary>
         private struct MapKey
         {
             /// <summary>Initializes a new instance of the <see cref="MapKey" /> struct.</summary>
